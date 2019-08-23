@@ -26,10 +26,10 @@ protobuf = ["prost"]
 
 [dependencies]
 base64 = "0.10"
-bytes = "0.4.7"
+bytes = "0.4.12"
 futures-preview = "=0.3.0-alpha.17"
-http = "0.1.14"
-h2 = "0.1.11"
+http = "0.1.18"
+h2 = "0.1.26"
 log = "0.4"
 percent-encoding = "1.0.1"
 tower-hyper = { version = "0.1", optional = true }
