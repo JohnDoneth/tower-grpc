@@ -63,7 +63,8 @@ pub trait UnaryService<R>: Unpin {
 
 impl<T, M1, M2: Unpin> UnaryService<M1> for T
 where
-    T: Service<Request<M1>, Response = Response<M2>, Error = crate::Status>,
+    T: Service<Request<M1>, Response = Response<M2>, Error = crate::Status> + Unpin,
+    T::Future: Unpin,
 {
     type Response = M2;
     type Future = T::Future;

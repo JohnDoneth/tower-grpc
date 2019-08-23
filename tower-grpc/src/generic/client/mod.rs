@@ -45,8 +45,9 @@ pub trait GrpcService<ReqBody>: Unpin {
 
 impl<T, ReqBody, ResBody> GrpcService<ReqBody> for T
 where
-    T: Service<Request<ReqBody>, Response = Response<ResBody>>,
+    T: Service<Request<ReqBody>, Response = Response<ResBody>> + Unpin,
     T::Error: Into<Error>,
+    T::Future: Unpin,
     ResBody: Body + HttpBody,
 {
     type ResponseBody = ResBody;
